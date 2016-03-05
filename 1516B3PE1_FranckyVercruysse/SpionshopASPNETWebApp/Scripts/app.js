@@ -45,7 +45,7 @@ var ViewModel = function () {
         }
     }
 
-    // WinkelMandje begin               // http://knockoutjs.com/examples/cartEditor.html
+    // WinkelMandje begin                   // http://knockoutjs.com/examples/cartEditor.html
     self.lijnen = ko.observableArray();
     self.grandTotal = ko.computed(function () {
         var total = 0;
