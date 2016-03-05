@@ -1,0 +1,23 @@
+Authenticatie
+=============
+
+Er is enkel authenticatie voor de webapplicatie.
+Omdat we nog niet ver in de cursus zitten heb ik een alternatief gebruikt, nl. authenticatie met sessionvariable.
+Ik sla de gegevens van de ingelogde gebruiker in een sessionvariable. Hiervoor gebruik ik de klasse KlantDTO.
+
+Ik wil nog opmerken dat ik de ajax call voor authenticatie synchroon laat verlopen anders worden de volgende functies uitgevoerd terwijl de authenticatie-call nog bezig is.
+
+function isAuthenticated() {
+    $.ajax({
+        type: "POST",
+        url: accountUri,
+        data: {},
+        contentType: "application/json; charset=utf-8",
+==>     async: false,											<===
+        dataType: "json",
+        success: successFunc,
+        error: errorFunc
+    });
+};
+
+Wanneer (klantDTO == undefined) dan moet de klant inloggen of registreren. Ik heb beslist om dit te doen bij het opvragen van de artikeldetails.

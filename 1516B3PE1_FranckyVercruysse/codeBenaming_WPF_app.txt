@@ -1,0 +1,6 @@
+Benaming in de code
+-------------------
+om een onderscheid te maken tussen toevoegen en aanpassen van categorieën en artikels eindigen de benamingen
+van de verschillende onderdelen (tekstvelden, functie, listview, ...)
+met de letter T (= Toevoegen) en letter A (= aanpassen) 
+

@@ -1,0 +1,10 @@
+Ik heb even httpwebrequest gebruikt, i.p.v. httpclient om meer parameter te kunnen meegeven bij authenticatie.
+Zie link hieronder voor meer uitleg.
+http://www.diogonunes.com/blog/webclient-vs-httpclient-vs-httpwebrequest/
+
+Conclusion
+
+HttpWebRequest for control
+WebClient for simplicity and brevity
+RestSharp for both on non-.NET 4.5 environments
+HttpClient for both + async features on .NET 4.5 environments

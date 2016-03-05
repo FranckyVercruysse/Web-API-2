@@ -1,0 +1,141 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:SpionshopWPFApp="clr-namespace:SpionshopWPFApp" x:Class="SpionshopWPFApp.View.ArtikelWindow"
+        Title="Artikel Window" Height="800" Width="925" WindowStartupLocation ="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="530" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+            <Button Name="btnArtikelToevoegen" Margin="20,20,20,40" Click="btnArtikelToevoegen_Click">Toevoegen</Button>
+            <Button Name="btnMenu" Margin="20,20,20,40"  HorizontalAlignment="Right" Click="btnMenu_Click" >Menu</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <TextBlock Name="tbUitleg"  Text="Dubbelklik op artikel om aan te passen" />
+        </StackPanel>
+        <TextBlock Text="Lijst van artikels" FontSize="15" FontWeight="Bold" Margin="7,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></TextBlock>
+        <ListView x:Name="artikelsListView" Grid.Column="0" Grid.Row="1" Background="Transparent" BorderThickness="1" ScrollViewer.CanContentScroll="True" MouseDoubleClick="artikelsListView_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Artikel_id" Width="50" DisplayMemberBinding="{Binding Artikel_id}"/>
+                    <GridViewColumn Header="Artikel" Width="240" DisplayMemberBinding="{Binding Artikel1}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Name="stkAanpassen" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
+            <TextBlock Text="Artikel wijzigen" FontSize="15" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Artikel_id" Width="75"></TextBlock>
+                <TextBox Name="txtArtikel_id_A" Margin="10,0,0,0" Width="240" IsReadOnly="True"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Cat_id" Width="75"></TextBlock>
+                <ComboBox Name="cbxCat_id_A" Margin="10,0,0,0" Width="240" Text="{Binding Cat_id}" IsReadOnly="True" IsEditable="True" Loaded="cbxCat_id_A_Loaded" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Artikel" Width="75"></TextBlock>
+                <TextBox Name="txtArtikel_A" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Omschrijving" Width="75"></TextBlock>
+                <TextBox Name="txtOmschrijving_A"  TextWrapping="Wrap" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Verkoopprijs" Width="75"></TextBlock>
+                <TextBox Name="txtVerkoopprijs_A"  TextWrapping="Wrap" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Instock" Width="75"></TextBlock>
+                <TextBox Name="txtInstock_A"  TextWrapping="Wrap" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                <TextBlock Text="Kies Nieuwe Afbeelding" Width="75" Margin="0,20,0,0" TextWrapping="Wrap"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <ListView Name="kiesAfbeelding_A_ListView" Margin="10,0,0,0" Width="200" MaxHeight="260"  Background="Transparent" BorderThickness="1" ScrollViewer.CanContentScroll="True" SelectionChanged="kiesAfbeelding_A_ListView_SelectionChanged">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text="{Binding FileName}"/>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="10,0,0,0" Text="originele afbeelding"/>
+                        <Image Name="Image_A_Oud" Height="120" Width="120" />
+                        <TextBlock Margin="10,0,0,0" Text="nieuwe afbeelding"/>
+                        <TextBox Margin="10,0,0,0" Name="tbGekozenAfbeeldingA" Width="200" IsReadOnly="True" />
+                        <Image Name="Image_A_Nieuw" Height="120" Width="120" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Margin="120,10,50,0">
+                <DockPanel >
+                    <Button Name="btnArtikelPut" Content="Aanpassen"  Margin="160,0,20,0" DockPanel.Dock="Left" Click="btnArtikelPut_Click"></Button>
+                    <Button Name="btnArtikelDelete" Content="Delete" Margin="60,0,60,0" DockPanel.Dock="Right" Click="btnArtikelDelete_Click"></Button>
+                </DockPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+
+        <StackPanel Name="stkVoegToe" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Visibility="Hidden">
+            <TextBlock Text="Artikel Toevoegen" FontSize="15" FontWeight="Bold"></TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Artikel" Width="75"></TextBlock>
+                <TextBox x:Name="txtArtikelT" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Omschrijving" Width="75"></TextBlock>
+                <TextBox x:Name="txtOmschrijvingT" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Categorie" Width="75"></TextBlock>
+                <ComboBox Name="cbxCat_id_T" Margin="10,0,0,0" Width="240" Text="--Select a Categorie--" IsReadOnly="True" IsEditable="True" Loaded="cbxCat_id_T_Loaded" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Verkoopprijs" Width="75"></TextBlock>
+                <TextBox x:Name="txtVerkoopprijsT" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Instock" Width="75"></TextBlock>
+                <TextBox x:Name="txtInstockT" Margin="10,0,0,0" Width="240"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                <TextBlock Text="Kies Afbeelding" Width="75" Margin="0,0,0,0" TextWrapping="Wrap"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <ListView Name="kiesAfbeelding_T_ListView" Margin="10,0,0,0" Width="200" Background="Transparent" BorderThickness="1" ScrollViewer.CanContentScroll="True" SelectionChanged="kiesAfbeelding_T_ListView_SelectionChanged">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text="{Binding FileName}"/>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="10,0,0,0"  Text="geselecteerde afbeelding"/>
+                        <TextBox Margin="10,0,0,0" Name="tbGekozenAfbeeldingT" Width="200" IsReadOnly="True" Text="kies een afbeelding"/>
+                        <Image Name="Image_T" Height="150" Width="150" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Toevoegen" Name="btnArtikelPost"  Margin="300,10,160,0" IsEnabled="False" Click="btnArtikelPost_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,44 @@
+De informatie voor authenticatie heb ik hoofdzakelijk hieruit gehaald.
+http://www.azurefromthetrenches.com/how-to-register-and-authenticate-with-web-api-2-and-owin/
+https://www.youtube.com/watch?v=dk0PwKO4MP0
+https://www.youtube.com/watch?v=jF38zIiX4uE vanaf 48 minuten tot einde
+http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api
+http://www.nakov.com/blog/2014/12/22/webapi-owin-identity-custom-login-service/
+
+
+
+
+login
+=====
+om in te loggen zien we in ons project
+
+Startup.Auth.cs
+
+OAuthOptions = new OAuthAuthorizationServerOptions
+            {
+-->             TokenEndpointPath = new PathString("/Token"),
+                Provider = new ApplicationOAuthProvider(PublicClientId),
+                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                // In production mode set AllowInsecureHttp = false
+                AllowInsecureHttp = true
+            };
+
+ApplicationOAuthProvider.cs
+
+public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
+            {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+
+            return Task.FromResult<object>(null);
+        }
+
+dit kunnen we testen met Fiddler
+
+We doen een POST naar http://localhost:51190/token 
+in de header : content-type : application/x-www-form-urlencoded
+in de body : username=test@example.com&password=Pasword1!&grant_type=password
+

@@ -1,0 +1,30 @@
+om vast poort nummer te verkrijgen :
+====================================
+http://stackoverflow.com/questions/22822209/changing-project-port-number-in-visual-studio-2013
+
+
+in SpionshopASPNETWebApp.csproj
+in directory C:\Users\Francky\Documents\Visual Studio 2013\Projects\1516B3PE1_FranckyVercruysse\SpionshopASPNETWebApp
+( in de rootdirectory van de asp.net applicatie project)
+
+<ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56575</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56575/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+
+  
+

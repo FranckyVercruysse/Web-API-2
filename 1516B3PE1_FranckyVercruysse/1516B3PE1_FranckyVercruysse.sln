@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpionshopASPNETWebApp", "SpionshopASPNETWebApp\SpionshopASPNETWebApp.csproj", "{61FE620F-EE8E-4C74-8A13-2554963EFD90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpionshopWPFApp", "SpionshopWPFApp\SpionshopWPFApp.csproj", "{1839E29C-019D-4BBC-8351-66A8371EA75B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E76958EF-9A0F-44FE-9A59-4647C465B89C}"
+	ProjectSection(SolutionItems) = preProject
+		authSessionVariable.txt = authSessionVariable.txt
+		beheerAfbeeldingen.txt = beheerAfbeeldingen.txt
+		codeBenaming_WPF_app.txt = codeBenaming_WPF_app.txt
+		Cors.docx = Cors.docx
+		Meerdere projecten starten.txt = Meerdere projecten starten.txt
+		MicrosoftAzureActiveDirectory.docx = MicrosoftAzureActiveDirectory.docx
+		publishSpionshopAPI2.docx = publishSpionshopAPI2.docx
+		spionshop testen.txt = spionshop testen.txt
+		SpionshopPublishAzureTest.docx = SpionshopPublishAzureTest.docx
+		vast poort nummer.txt = vast poort nummer.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spionshop_API2", "Spionshop_API2\Spionshop_API2.csproj", "{F65189E9-FAA0-4362-8CA3-45CC38EE3723}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61FE620F-EE8E-4C74-8A13-2554963EFD90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FE620F-EE8E-4C74-8A13-2554963EFD90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FE620F-EE8E-4C74-8A13-2554963EFD90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FE620F-EE8E-4C74-8A13-2554963EFD90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1839E29C-019D-4BBC-8351-66A8371EA75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1839E29C-019D-4BBC-8351-66A8371EA75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1839E29C-019D-4BBC-8351-66A8371EA75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1839E29C-019D-4BBC-8351-66A8371EA75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F65189E9-FAA0-4362-8CA3-45CC38EE3723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F65189E9-FAA0-4362-8CA3-45CC38EE3723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F65189E9-FAA0-4362-8CA3-45CC38EE3723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F65189E9-FAA0-4362-8CA3-45CC38EE3723}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://sofraver.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = SpionshopASPNETWebApp\\SpionshopASPNETWebApp.csproj
+		SccProjectName1 = SpionshopASPNETWebApp
+		SccLocalPath1 = SpionshopASPNETWebApp
+		SccProjectUniqueName2 = SpionshopWPFApp\\SpionshopWPFApp.csproj
+		SccProjectName2 = SpionshopWPFApp
+		SccLocalPath2 = SpionshopWPFApp
+		SccProjectUniqueName3 = Spionshop_API2\\Spionshop_API2.csproj
+		SccProjectName3 = Spionshop_API2
+		SccLocalPath3 = Spionshop_API2
+	EndGlobalSection
+EndGlobal

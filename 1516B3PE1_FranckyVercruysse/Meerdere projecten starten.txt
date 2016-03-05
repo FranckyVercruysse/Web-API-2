@@ -1,0 +1,4 @@
+om meerdere projecten te starten
+  ================================
+  eerst asp.net api 2 server starten, daarna de client:
+  https://msdn.microsoft.com/en-us/library/ms165413.aspx

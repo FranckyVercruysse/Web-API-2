@@ -1,0 +1,43 @@
+mijn werkwijze
+
+Alle afbeeldingen staan op de server : 'http://spionshopapi2.azurewebsites.net/' en worden gepubliceerd vanuit project Spionshop_API2
+
+map 'resources/images'
+----------------------
+In deze map staan alle grote afbeeldingen die beschikbaar voor deze toepassing. 
+Het zijn allemaal afbeeldingen in gif formaat.
+ik gebruik http://image.online-convert.com/convert-to-gif om afbeeldingen naar gif formaat te converteren.
+
+map 'resources/images/thumbs'
+-----------------------------
+In deze map staan alle kleine afbeeldingen die beschikbaar zijn voor deze toepassing.
+Om verwarring te voorkomen beginnen alle bestanden met 'thumbs'. Het programma houdt hier ook rekening mee.
+Ook deze kleine afbeeldingen moeten in gif formaat zijn.
+ik gebruik http://www.makeathumbnail.com/ om afbeelding in gif-formaat naar thumbsnail (in gif-formaat) te converteren.
+
+map 'Images'
+------------
+Hierin staan alle afbeeldingen in gif-formaat.
+de bestandsnaam : 'artikel_id'  + .gif
+zo wordt de afbeelding aan een artikel gekoppeld.
+
+map 'Images/thumbs'
+-------------------
+Hierin staan de thumbnails in gif-formaat
+de bestandsnaam : 'artikel_id'  + .gif
+zo wordt de afbeelding aan een artikel gekoppeld.
+
+De afbeeldingen worden geraadpleegd en in de juiste map gezet door de AfbeeldingController (web api 2 controller).
+* raadplegen : http://localhost:56575/lijstafbeeldingen
+* in juiste map plaatsen : http://localhost:56575/CopyAfbeelding/{fileName}/{id} 
+			waarin id = artikel_id en filename = bestandsnaam van een bestand uit de map 'resources'.
+* afbeelding opvragen om te tonen gebeurt met : http://localhost:56575/BytesArray/{fileName}/{ext}/{pad}
+			hierin worden enkel de grote afbeeldingen opgehaald.
+			waarin filename : bestandsnaam zonder extensie gif
+			ext = 'gif'
+			pad =	'resources'	=> afbeelding wordt uit map resources/images gehaald
+					'images'	=> afbeelding wordt uit map images gehaald
+* afbeelding delete als artikel verwijderd wordt : http://localhost:56575/DeleteAfbeelding/{id}
+			id = artikel_id
+
+           

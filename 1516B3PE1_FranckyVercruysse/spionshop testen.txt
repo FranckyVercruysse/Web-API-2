@@ -1,0 +1,20 @@
+Testen
+------
+
+website http://spionshop.azurewebsites.net/ gebruiken om bestellingen te doen.
+
+http://spionshopapi2.azurewebsites.net/ bekijken om te weten welke RESTful web APIs (endpoints) er beschikbaar zijn en hoe ze aangeroepen kunnen worden.
+
+SpionshopWPFApp.exe gebruiken om categorieën, artikels, afbeeldingen en bestellingen te beheren.
+
+klant : Francky paswoord =  XXXXXX!
+
+Azure
+
+(Spionshop)
+server : omecc7czw4.database.windows.net,1433
+user : dbuser
+passwoord :  XXXXXX!
+database : Spionshop
+
+Data Source=omecc7czw4.database.windows.net,1433;Initial Catalog=Spionshop;Persist Security Info=True;User ID=dbuser;Password=XXXXXX!

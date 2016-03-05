@@ -1,0 +1,118 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<style>
+    .winkelmandje {
+        background-color: lightseagreen;
+        width: 100%;
+        border: 6px double blue;
+    }
+</style>
+
+<div id="spionshop">
+    <div class="row">
+
+        <div class="col-md-6" data-bind="css: { 'collapse': lijnen().length==0 && !artikeldetail() }">
+            <div class="panel panel-default">
+                <div data-bind="visible:lijnen().length>0">
+                    @*begin winkelmandje*@
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Winkelmandje</h2>
+                    </div>
+                    <div class="winkelmandje table-responsive">
+                        <table class="table" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="width:50%;">Artikel</th>
+                                    <th class='price' style="width:5%;text-align:right">Prijs</th>
+                                    <th style="width:5%;"> </th>
+                                    <th class='quantity' style="width:3%">Aantal</th>
+                                    <th class='price' style="width:15%;text-align:right">Subtotaal</th>
+                                    <th style="width:5%;"> </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind='foreach: lijnen'>
+                                <tr>
+                                    <td class='artikel'>
+                                        <span data-bind='text: artikelMandje()'> </span>
+                                    </td>
+                                    <td class='price' style="text-align:right">
+                                        <span data-bind='text: prijsMandje()'> </span>
+                                    </td>
+                                    <td></td>       @*lege kolom*@
+                                    <td class='quantity'>
+                                        <input size="2" data-bind='value: aantalMandje, valueUpdate: "afterkeydown"' />
+                                    </td>
+                                    <td class='price' style="text-align:right">
+                                        <span data-bind='visible: artikelMandje, text: formatCurrency(subtotaal())'> </span>
+                                    </td>
+                                    <td>
+                                        <a href='#' data-bind='click: $parent.removeLine'><img src="../Images/buttons/remove.png" alt="verwijder bestelling" width="30" /></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class='grandTotal' style="font-size:26px;">
+                            Totaal: <span style="font-weight:bold;" data-bind='text: formatCurrency(grandTotal())'> </span>
+                        </p>
+                        <button data-bind="click: bestel"><img src="../Images/buttons/bestel.jpg" alt="bestel" width="60" /></button>
+                    </div>
+                </div>      @*einde winkelmandje*@
+
+                @*detail*@
+                <!-- ko if:artikeldetail() -->
+                <div class="panel-heading">
+                    <h2 class="panel-title">Details</h2>
+                </div>
+                <table class="table">
+                    <tr><td>Artikel</td><td data-bind="text: artikeldetail().Artikel1"></td></tr>
+                    <tr><td>Omschr</td><td data-bind="text: artikeldetail().Omschrijving"></td></tr>
+                    <tr><td>Prijs</td><td data-bind="text: formatCurrency(artikeldetail().Verkoopprijs)"></td></tr>
+                </table>
+                <img width="209" height="209" data-bind="attr:{src: $root.GetGroteAfbeelding(artikeldetail().Artikel_id)}" />
+                <input type="number" data-bind="value:Aantal" min="1" />
+                <button data-bind='click: addLine' class="buttonClass"><img src="../Images/buttons/shoppingcart.jpg" alt="voeg toe aan winkelkarretje" width="60" /></button>
+                <!-- /ko -->
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Categorieën</h2>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled" data-bind="foreach: categories">
+                        <li>
+                            <span data-bind="text: Categorie1"></span>
+                            <small><a href="#" data-bind="click: $parent.getArtikelsPerCategorie">Artikels</a></small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="panel panel-default" data-bind="visible: artikelsPerCategorie().length">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Artikels in deze categorie</h2>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled" data-bind="foreach: artikelsPerCategorie">
+                        <li>
+                            <span style="display:inline-block;width:58%"><a href="#" data-bind="text: Artikel1, click: $parent.getDetail"></a></span>
+                            <span style="display:inline-block;width:18%" data-bind="text: formatCurrency(Verkoopprijs)"></span>
+                            <span style="display:inline-block;width:20%"><img width="56" height="56" data-bind="attr:{src: $root.GetThumbs(Artikel_id)}" /></span>
+                            <hr style="width: 100%; color: black; height: 2px; background-color:black;" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

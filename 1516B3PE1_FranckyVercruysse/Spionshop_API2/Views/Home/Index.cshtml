@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Spionshop_API2.Models.Categorie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie1)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
